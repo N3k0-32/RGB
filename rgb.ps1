@@ -19,6 +19,22 @@ param(
     [int]$waitTime = 1000    # 達到極值後等待時間
 )
 
+if ($ipAddress -eq '--help' -or $args -contains '--help') {
+    Write-Host "RGB 腳本說明:" -ForegroundColor Green
+    Write-Host "用法: .\rgb.ps1 <目標 IP 地址> <參數>"
+    Write-Host ""
+    Write-Host "參數:"
+    Write-Host "  -i       初始間隔時間，預設為 1000 ms"
+    Write-Host "  -min     最小間隔時間，預設為 10 ms"
+    Write-Host "  -max     最大間隔時間，預設為 1000 ms"
+    Write-Host "  -d       初始方向，可選值 'down' 或 'up'，預設為 down"
+    Write-Host "  -w       達到極值時的等待時間，預設為 1000 ms"
+    Write-Host ""
+    Write-Host "範例:"
+    Write-Host "  .\rgb.ps1 192.168.1.1 -i 500 -min 50 -max 1000 -d up -w 2000"
+    exit
+}
+
 # 定義要請求的 URL 列表
 $urls = @(
     "http://$ipAddress/L0",
