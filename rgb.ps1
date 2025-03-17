@@ -21,7 +21,7 @@ param(
 
 if ($ipAddress -eq '--help' -or $args -contains '--help') {
     Write-Host "RGB 腳本說明:" -ForegroundColor Green
-    Write-Host "用法: .\rgb.ps1 <目標 IP 地址> <參數>"
+    Write-Host "用法: .\rgb.ps1 <目標 IP 位址> <參數>"
     Write-Host ""
     Write-Host "參數:"
     Write-Host "  -i       初始間隔時間，預設為 1000 ms"
